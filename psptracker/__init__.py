@@ -6,14 +6,6 @@ DEFAULT_DATA_DIR = os.path.join( os.path.abspath( os.path.expanduser( "~" ) ), "
 DEFAULT_CONF_FILE = os.path.join( os.path.abspath( os.path.expanduser( "~" ) ), "." + APP_NAME.lower() + "rc" );
 
 __all__ = [
-	"AbstractMain",
-	"AbstractOfflineTracker",
-	"AbstractRealtimeTracker",
-	"Activity",
-	"ActivityType",
-	"Main",
-	"OfflineTracker",
-	"RealtimeTracker",
-	"Tracker",
-	"TrackerFactory"
+	"activity",
+	"tracker",
 ]
