@@ -2,11 +2,10 @@ import time
 
 class Activity(object):
 
-	def __init__( self, name, description = "" ):
+	def __init__( self, description = "" ):
 		self.startTime = 0
 		self.stopTime = 0 
 		self.interruptions = []
-		self.name = name
 		self.state = "stopped"
 		self.description = description
 
