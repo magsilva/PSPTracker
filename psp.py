@@ -1,3 +1,6 @@
+import sys
+from qt import *
+
 def main(args):
     app=QApplication(args)
     win=HelloWindow()
