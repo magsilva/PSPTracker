@@ -54,7 +54,9 @@ void AbstractCategoryManager::pushRename_clicked()
 {
 	categoryOld = self.listCategory.item( self.listCategory.currentItem() ).text()
 	categoryNew =  self.editCategory.text()
-	tracker.renameActivityType( categoryOld, categoryNew )
+	print categoryOld, categoryNew
+	self.tracker.renameActivityType( categoryOld.ascii(), categoryNew.ascii() )
+	self.listCategory.changeItem( categoryNew, self.listCategory.currentItem() );
 	self.listCategory.clearSelection()
 	self.editCategory.clear()
 }
