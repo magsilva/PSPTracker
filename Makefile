@@ -12,5 +12,5 @@ all: $(FORMS)
 
 
 clean:
-	rm -f *~ *.pyc *.pyo
+	rm -f *~ *.pyc *.pyo Abstract*.py
 	rm -f Documentation/Project/*.bak.*
