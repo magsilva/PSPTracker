@@ -1,19 +1,13 @@
 import sys
 import random
 import time
-from qt import *
 
-# from Main import Main
-from RealtimeTracker import RealtimeTracker
-from OfflineTracker import OfflineTracker
-from TrackerFactory import TrackerFactory
-from Tracker import Tracker
-from ActivityType import ActivityType
-from Activity import Activity
+from qt import *
+from psptracker import *
 
 def main( args ):
-	app = QApplication( args )
-	QObject.connect( app, SIGNAL( 'lastWindowClosed()' ), app, SLOT( 'quit()' ) )
+#	app = QApplication( args )
+#	QObject.connect( app, SIGNAL( 'lastWindowClosed()' ), app, SLOT( 'quit()' ) )
 	tracker = TrackerFactory.load( "teste" )
 
 	try:
@@ -35,11 +29,11 @@ def main( args ):
 	print tracker.toCSV()
 	TrackerFactory.save( "teste", tracker )
 
-	trackerUI = RealtimeTracker()
+#	trackerUI = RealtimeTracker()
 #	trackerUI = OfflineTracker()
-	app.setMainWidget( trackerUI )
-	trackerUI.show()
-	app.exec_loop()
+#	app.setMainWidget( trackerUI )
+#	trackerUI.show()
+#	app.exec_loop()
 
 if __name__ == "__main__":
 	main( sys.argv )

@@ -1,8 +1,8 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>Form1</class>
+<class>AbstractMain</class>
 <widget class="QMainWindow">
     <property name="name">
-        <cstring>Form1</cstring>
+        <cstring>AbstractMain</cstring>
     </property>
     <property name="geometry">
         <rect>
@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>Form1</string>
+        <string>PSP Tracker</string>
     </property>
 </widget>
 <menubar>
@@ -166,37 +166,37 @@
     <connection>
         <sender>fileNewAction</sender>
         <signal>activated()</signal>
-        <receiver>Form1</receiver>
+        <receiver>AbstractMain</receiver>
         <slot>fileNew()</slot>
     </connection>
     <connection>
         <sender>fileOpenAction</sender>
         <signal>activated()</signal>
-        <receiver>Form1</receiver>
+        <receiver>AbstractMain</receiver>
         <slot>fileOpen()</slot>
     </connection>
     <connection>
         <sender>filePrintAction</sender>
         <signal>activated()</signal>
-        <receiver>Form1</receiver>
+        <receiver>AbstractMain</receiver>
         <slot>filePrint()</slot>
     </connection>
     <connection>
         <sender>fileExitAction</sender>
         <signal>activated()</signal>
-        <receiver>Form1</receiver>
+        <receiver>AbstractMain</receiver>
         <slot>fileExit()</slot>
     </connection>
     <connection>
         <sender>helpContentsAction</sender>
         <signal>activated()</signal>
-        <receiver>Form1</receiver>
+        <receiver>AbstractMain</receiver>
         <slot>helpContents()</slot>
     </connection>
     <connection>
         <sender>helpAboutAction</sender>
         <signal>activated()</signal>
-        <receiver>Form1</receiver>
+        <receiver>AbstractMain</receiver>
         <slot>helpAbout()</slot>
     </connection>
 </connections>
