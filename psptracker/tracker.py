@@ -52,8 +52,18 @@ class Tracker(object):
 			self.activities[ name ] = activityType
 			return activityType
 
-	def deleteActivityType( self ):
+	def deleteActivityType( self, name ):
 		del( self.activities[ name ] )
+
+	def renameActivityType( self, oldName, newName ):
+		if not self.activities.has_key( oldNname ):
+			raise Exception( "Activity type could not be found." )
+		elif self.activities.has_key( newName ):
+			raise Exception( "There is already an activity with the suggested name." )
+
+		activityType = self.activities[ oldName ]
+		del( self.activities[ oldName ] )
+		self.activities[ newName ] = activityType	
 
 	def toCSV( self ):
 		csv = ""

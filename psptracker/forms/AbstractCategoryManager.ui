@@ -117,12 +117,40 @@
         <receiver>AbstractCategoryManager</receiver>
         <slot>AbstractCategoryManager_destroyed(QObject*)</slot>
     </connection>
+    <connection>
+        <sender>buttonAdd</sender>
+        <signal>clicked()</signal>
+        <receiver>AbstractCategoryManager</receiver>
+        <slot>buttonAdd_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>buttonDelete</sender>
+        <signal>clicked()</signal>
+        <receiver>AbstractCategoryManager</receiver>
+        <slot>buttonDelete_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>listCategory</sender>
+        <signal>selected(QListBoxItem*)</signal>
+        <receiver>AbstractCategoryManager</receiver>
+        <slot>listCategory_selected(QListBoxItem*)</slot>
+    </connection>
+    <connection>
+        <sender>pushRename</sender>
+        <signal>clicked()</signal>
+        <receiver>AbstractCategoryManager</receiver>
+        <slot>pushRename_clicked()</slot>
+    </connection>
 </connections>
 <includes>
     <include location="local" impldecl="in implementation">AbstractCategoryManager.ui.h</include>
 </includes>
 <slots>
     <slot>AbstractCategoryManager_destroyed( QObject * )</slot>
+    <slot>buttonAdd_clicked()</slot>
+    <slot>buttonDelete_clicked()</slot>
+    <slot>listCategory_selected( QListBoxItem * a0 )</slot>
+    <slot>pushRename_clicked()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

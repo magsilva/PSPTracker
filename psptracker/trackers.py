@@ -15,6 +15,7 @@ class RealtimeTracker( AbstractRealtimeTracker ):
   def __init__( self, tracker, parent = None, name = None, modal = 0, fl = 0):
 		AbstractRealtimeTracker.__init__( self, parent, name, modal, fl )
 		self.tracker = tracker
+		self.categoryManager = CategoryManager( tracker, parent = self )
 
 
 class OfflineTracker( AbstractOfflineTracker ):

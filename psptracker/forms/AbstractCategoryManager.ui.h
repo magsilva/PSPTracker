@@ -15,3 +15,46 @@ void AbstractCategoryManager::AbstractCategoryManager_destroyed( QObject * )
 {
 
 }
+
+
+void AbstractCategoryManager::buttonAdd_clicked()
+{
+	category = self.editCategory.text()
+	try:
+		self.tracker.createActivityType( category.ascii() )
+		self.listCategory.insertItem( category )
+		self.editCategory.clear()
+	except Exception:
+		pass
+}
+
+
+void AbstractCategoryManager::buttonDelete_clicked()
+{
+	category = self.editCategory.text()
+	if not category.isEmpty() and self.listCategory.count != 0:
+		for i in range( self.listCategory.count() ):
+			if category == self.listCategory.item( i ).text():
+				self.listCategory.removeItem( i )
+				self.tracker.deleteActivityType( category.ascii() )
+				self.editCategory.clear()
+				break;
+
+	self.listCategory.clearSelection()
+}
+
+
+void AbstractCategoryManager::listCategory_selected( QListBoxItem *a0 )
+{
+	self.editCategory.setText( a0.text() )
+}
+
+
+void AbstractCategoryManager::pushRename_clicked()
+{
+	categoryOld = self.listCategory.item( self.listCategory.currentItem() ).text()
+	categoryNew =  self.editCategory.text()
+	tracker.renameActivityType( categoryOld, categoryNew )
+	self.listCategory.clearSelection()
+	self.editCategory.clear()
+}

@@ -81,7 +81,5 @@ void AbstractRealtimeTracker::Start_clicked()
 
 void AbstractRealtimeTracker::CategoryManagement_clicked()
 {
-#	categoryForm = CategoryManager( self.tracker )
-	categoryForm = QPushButton( self, "teste" )
-	categoryForm.show()
+	self.categoryManager.show()
 }
