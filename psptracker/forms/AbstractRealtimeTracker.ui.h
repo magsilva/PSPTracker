@@ -25,47 +25,46 @@ void AbstractRealtimeTracker::ActivityManagement_clicked()
 
 void AbstractRealtimeTracker::Description_textChanged()
 {
-    if activity:
-	    activity.description = QString
+	if self.activity:
+		self.activity.description = self.Description.text.ascii()
 }
 
 
-void AbstractRealtimeTracker::Start_toggled( bool )
+void AbstractRealtimeTracker::Start_toggled( bool state)
 {
-    if bool == true:
-	Start.setDisabled()
-	Pause.setEnabled()
-	Stop.setEnabled()
-	activity.start()
-    }
+	if sate == True:
+		self.Start.setDisabled( state )
+		self.Pause.setEnabled( state )
+		self.Stop.setEnabled( state )
+		self.activity.start()
 }
 
 
-void AbstractRealtimeTracker::Pause_toggled( bool )
+void AbstractRealtimeTracker::Pause_toggled( bool state )
 {
-    activity.pause( InterruptReason.text )
+	self.activity.pause( self.InterruptReason.text.ascii() )
 }
 
 
-void AbstractRealtimeTracker::Stop_toggled( bool )
+void AbstractRealtimeTracker::Stop_toggled( bool state )
 {
-    if bool == true:
-	Start.setEnabled()
-	Pause.setDisabled()
-	Stop.setDisabled()
-	activity.stop()
+    if state == True:
+	self.Start.setEnabled( state )
+	self.Pause.setDisabled( state )
+	self.Stop.setDisabled( state )
+	self.activity.stop()
 }
 
 
 void AbstractRealtimeTracker::InterruptReason_textChanged()
 {
-    activity.reason = InterruptReason.text
+	self.activity.reason = self.InterruptReason.text.ascii()
 }
 
 
-void AbstractRealtimeTracker::TotalTime_valueChanged( const QTime & )
+void AbstractRealtimeTracker::TotalTime_valueChanged( const QTime &time )
 {
-    stress.progress = ( QTime * 100 ) / DEFAULT_STRESS_TIME
+	self.Stress.progress = ( time * 100 ) / DEFAULT_STRESS_TIME
 }
 
 
@@ -76,5 +75,5 @@ void AbstractRealtimeTracker::AbstractRealtimeTracker_destroyed( QObject * )
 
 void AbstractRealtimeTracker::Start_clicked()
 {
-    Start.setDisabled()
+	self.Start.setDisabled( True )
 }
