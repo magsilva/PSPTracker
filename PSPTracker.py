@@ -4,8 +4,8 @@ import time
 from qt import *
 
 # from Main import Main
-# from RealtimeTracker import RealtimeTracker
-# from OfflineTracker import OfflineTracker
+from RealtimeTracker import RealtimeTracker
+from OfflineTracker import OfflineTracker
 from TrackerFactory import TrackerFactory
 from Tracker import Tracker
 from ActivityType import ActivityType
@@ -35,11 +35,11 @@ def main( args ):
 	print tracker.toCSV()
 	TrackerFactory.save( "teste", tracker )
 
-#	trackerUI = RealtimeTracker()
+	trackerUI = RealtimeTracker()
 #	trackerUI = OfflineTracker()
-#	app.setMainWidget( trackerUI )
-#	trackerUI.show()
-#	app.exec_loop()
+	app.setMainWidget( trackerUI )
+	trackerUI.show()
+	app.exec_loop()
 
 if __name__ == "__main__":
 	main( sys.argv )

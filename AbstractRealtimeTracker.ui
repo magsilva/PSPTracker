@@ -439,17 +439,6 @@
                         </widget>
                         <widget class="QLabel">
                             <property name="name">
-                                <cstring>LabelEnd</cstring>
-                            </property>
-                            <property name="text">
-                                <string>End</string>
-                            </property>
-                            <property name="alignment">
-                                <set>AlignVCenter|AlignRight</set>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
                                 <cstring>LabelTime</cstring>
                             </property>
                             <property name="text">
@@ -472,11 +461,6 @@
                         <widget class="QDateTimeEdit">
                             <property name="name">
                                 <cstring>StartDate</cstring>
-                            </property>
-                        </widget>
-                        <widget class="QDateTimeEdit">
-                            <property name="name">
-                                <cstring>EndDate</cstring>
                             </property>
                         </widget>
                         <widget class="QLayoutWidget">
@@ -603,7 +587,6 @@
     <tabstop>Stop</tabstop>
     <tabstop>InterruptReason</tabstop>
     <tabstop>StartDate</tabstop>
-    <tabstop>EndDate</tabstop>
     <tabstop>TotalTime</tabstop>
 </tabstops>
 <slots>
