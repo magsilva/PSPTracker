@@ -74,6 +74,12 @@
                             <property name="name">
                                 <cstring>Category</cstring>
                             </property>
+                            <property name="autoCompletion">
+                                <bool>true</bool>
+                            </property>
+                            <property name="duplicatesEnabled">
+                                <bool>false</bool>
+                            </property>
                         </widget>
                         <widget class="QComboBox">
                             <property name="name">
@@ -89,6 +95,9 @@
                             </property>
                             <property name="autoCompletion">
                                 <bool>true</bool>
+                            </property>
+                            <property name="duplicatesEnabled">
+                                <bool>false</bool>
                             </property>
                         </widget>
                         <widget class="QToolButton">
@@ -462,6 +471,19 @@
                             <property name="name">
                                 <cstring>StartDate</cstring>
                             </property>
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                            <property name="dateTime">
+                                <datetime>
+                                    <year>2000</year>
+                                    <month>1</month>
+                                    <day>1</day>
+                                    <hour>0</hour>
+                                    <minute>0</minute>
+                                    <second>0</second>
+                                </datetime>
+                            </property>
                         </widget>
                         <widget class="QLayoutWidget">
                             <property name="name">
@@ -474,6 +496,9 @@
                                 <widget class="QTimeEdit">
                                     <property name="name">
                                         <cstring>TotalTime</cstring>
+                                    </property>
+                                    <property name="enabled">
+                                        <bool>false</bool>
                                     </property>
                                 </widget>
                                 <spacer>
@@ -577,6 +602,60 @@
         <receiver>LabelInterruptReason</receiver>
         <slot>setEnabled(bool)</slot>
     </connection>
+    <connection>
+        <sender>ActivityManagement</sender>
+        <signal>clicked()</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>ActivityManagement_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>Description</sender>
+        <signal>textChanged()</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>Description_textChanged()</slot>
+    </connection>
+    <connection>
+        <sender>Start</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>Start_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>Pause</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>Pause_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>Stop</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>Stop_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>InterruptReason</sender>
+        <signal>textChanged()</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>InterruptReason_textChanged()</slot>
+    </connection>
+    <connection>
+        <sender>TotalTime</sender>
+        <signal>valueChanged(const QTime&amp;)</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>TotalTime_valueChanged(const QTime&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>AbstractRealtimeTracker</sender>
+        <signal>destroyed(QObject*)</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>AbstractRealtimeTracker_destroyed(QObject*)</slot>
+    </connection>
+    <connection>
+        <sender>Start</sender>
+        <signal>clicked()</signal>
+        <receiver>AbstractRealtimeTracker</receiver>
+        <slot>Start_clicked()</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>Category</tabstop>
@@ -589,8 +668,20 @@
     <tabstop>StartDate</tabstop>
     <tabstop>TotalTime</tabstop>
 </tabstops>
+<includes>
+    <include location="local" impldecl="in implementation">AbstractRealtimeTracker.ui.h</include>
+</includes>
 <slots>
-    <slot>MainForm_destroyed(QObject*)</slot>
+    <slot>MainForm_destroyed( QObject * )</slot>
+    <slot>ActivityManagement_clicked()</slot>
+    <slot>Description_textChanged()</slot>
+    <slot>Start_toggled( bool )</slot>
+    <slot>Pause_toggled( bool )</slot>
+    <slot>Stop_toggled( bool )</slot>
+    <slot>InterruptReason_textChanged()</slot>
+    <slot>TotalTime_valueChanged( const QTime &amp; )</slot>
+    <slot>AbstractRealtimeTracker_destroyed( QObject * )</slot>
+    <slot>Start_clicked()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>
