@@ -1,6 +1,10 @@
+from PSPTracker import *
 import AbstractMain
+import RealtimeTracker
 
-class Main( AbstractMain ):
+__all__ = [ "Main" ]
+
+class Main( PSPTracker.AbstractMain ):
 	def __init__( self ):
 		AbstractMain.__init__( self )
 		self.realtimeTracker = RealtimeTracker()
