@@ -1,8 +1,8 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>FormActivityManager</class>
+<class>AbstractActivityManager</class>
 <widget class="QDialog">
     <property name="name">
-        <cstring>FormActivityManager</cstring>
+        <cstring>AbstractActivityManager</cstring>
     </property>
     <property name="geometry">
         <rect>

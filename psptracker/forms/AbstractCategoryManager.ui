@@ -1,8 +1,8 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>FormCategoryManager</class>
+<class>AbstractCategoryManager</class>
 <widget class="QDialog">
     <property name="name">
-        <cstring>FormCategoryManager</cstring>
+        <cstring>AbstractCategoryManager</cstring>
     </property>
     <property name="geometry">
         <rect>
@@ -110,5 +110,19 @@
         </widget>
     </grid>
 </widget>
+<connections>
+    <connection>
+        <sender>AbstractCategoryManager</sender>
+        <signal>destroyed(QObject*)</signal>
+        <receiver>AbstractCategoryManager</receiver>
+        <slot>AbstractCategoryManager_destroyed(QObject*)</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">AbstractCategoryManager.ui.h</include>
+</includes>
+<slots>
+    <slot>AbstractCategoryManager_destroyed( QObject * )</slot>
+</slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

@@ -77,3 +77,11 @@ void AbstractRealtimeTracker::Start_clicked()
 {
 	self.Start.setDisabled( True )
 }
+
+
+void AbstractRealtimeTracker::CategoryManagement_clicked()
+{
+#	categoryForm = CategoryManager( self.tracker )
+	categoryForm = QPushButton( self, "teste" )
+	categoryForm.show()
+}
