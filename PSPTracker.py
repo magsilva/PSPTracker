@@ -3,9 +3,12 @@ import logging
 
 from psptracker import *
 from psptracker.constants import *
+from psptracker.tracker import *
 from psptracker.trackers import *
+from psptracker.activity import *
 from optparse import OptionParser
 from psptracker.settings import Settings
+from qt import QApplication
 
 logging.basicConfig(format="%(asctime)s - %(levelname)s - %(name)s - %(message)s")
 
@@ -34,9 +37,12 @@ def main( args ):
             print e
             sys.exit(1)
 
+    tracker = TrackerFactory.load( DEFAULT_TRACKER )
+
+
     app = QApplication( args )
 
-    trackerUI = RealtimeTracker()
+    trackerUI = RealtimeTracker( tracker )
 
     app.setMainWidget( trackerUI )
     trackerUI.show()

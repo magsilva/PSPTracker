@@ -25,6 +25,17 @@ class Settings(dict):
             error("Could not locate setting %s", k)
             return ""
 
+    def __setitem__(self, k, v):
+        try:
+            result = dict.__setitem__(self, k, v)
+            self.saveSettings()
+            return result
+        except:
+            error("Could not save setting %s (%s)", (k,v) )
+            return ""
+
+
+
 
     def setFilename(self, filename):
         self.filename = filename

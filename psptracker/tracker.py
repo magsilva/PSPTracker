@@ -1,7 +1,13 @@
 from activity import ActivityType
 from time import *
 from pickle import *
+from constants import *
 
+import logging
+import os
+
+error = logging.getLogger("tracker").error
+error = logging.getLogger("tracker").error
 
 class Tracker(object):
 
@@ -66,10 +72,20 @@ class TrackerFactory( object ):
 		pass
 
 
-	def load( cls, trackerName ):
+	def load( cls, trackerName, dataDir = None ):
+		if not dataDir:
+			dataDir = DEFAULT_DATA_DIR
+
+
+		error( "Looking for tracker %s at the directory %s" % ( trackerName, dataDir ) )
+
+		trackerFilename = os.path.join( dataDir, trackerName )
+
+		error( "Loading tracker %s from file %s" % ( trackerName, trackerFilename ) )
+
 		if not cls.trackers.has_key( trackerName ):
 			try:
-				file = open( trackerName, "r" )
+				file = open( trackerFilename, "r" )
 				unpickler = Unpickler( file )
 				cls.trackers[ trackerName ] = unpickler.load()
 			except IOError:
@@ -82,8 +98,17 @@ class TrackerFactory( object ):
 	load = classmethod( load )
 
 
-	def save( cls, trackerName, tracker ):
-		file = open( trackerName, "w+" )
+	def save( cls, trackerName, tracker, dataDir = None ):
+		if not dataDir:
+			dataDir = DEFAULT_DATA_DIR
+
+		error( "Looking for tracker %s at the directory %s" % ( trackerName, dataDir ) )
+
+		trackerFilename = os.path.join( dataDir, trackerName )
+
+		error( "Loading tracker %s from file %s" % ( trackerName, trackerFilename ) )
+
+		file = open( trackerFilename, "w+" )
 		pickler = Pickler( file, HIGHEST_PROTOCOL )
 		return pickler.dump( tracker )
 
