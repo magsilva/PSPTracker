@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>MainForm</class>
 <widget class="QDialog">
     <property name="name">
@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>423</width>
-            <height>601</height>
+            <height>580</height>
         </rect>
     </property>
     <property name="caption">
@@ -21,13 +21,13 @@
         </property>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>layout33</cstring>
+                <cstring>layout14</cstring>
             </property>
-            <vbox>
+            <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QLayoutWidget">
+                <widget class="QLayoutWidget" row="0" column="0">
                     <property name="name">
                         <cstring>layout27</cstring>
                     </property>
@@ -62,14 +62,19 @@
                         </spacer>
                     </hbox>
                 </widget>
-                <widget class="QLayoutWidget">
+                <widget class="QLayoutWidget" row="1" column="0">
                     <property name="name">
-                        <cstring>layout32</cstring>
+                        <cstring>layout13</cstring>
                     </property>
                     <hbox>
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
+                        <widget class="QComboBox">
+                            <property name="name">
+                                <cstring>Category</cstring>
+                            </property>
+                        </widget>
                         <widget class="QComboBox">
                             <property name="name">
                                 <cstring>Activity</cstring>
@@ -102,26 +107,9 @@
                                 <string>...</string>
                             </property>
                         </widget>
-                        <spacer>
-                            <property name="name">
-                                <cstring>spacer47</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>20</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
                     </hbox>
                 </widget>
-            </vbox>
+            </grid>
         </widget>
         <spacer row="1" column="0">
             <property name="name">

@@ -1,10 +1,14 @@
+TEMPLATE	= app
+LANGUAGE	= C++
+
+CONFIG	+= qt warn_on release
+
 SOURCES	+= main.cpp
+
+FORMS	= mainform.ui
+
 unix {
   UI_DIR = .ui
   MOC_DIR = .moc
   OBJECTS_DIR = .obj
 }
-FORMS	= mainform.ui
-TEMPLATE	=app
-CONFIG	+= qt warn_on release
-LANGUAGE	= C++
