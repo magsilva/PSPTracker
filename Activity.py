@@ -44,9 +44,9 @@ class Activity(object):
 
 	def interruptionTime( self ):
 		fruitlessTime = 0
-		for i in interruptions[:]:
+		for i in self.interruptions[:]:
 			fruitlessTime += i.stopTime - i.startTime
 		return fruitlessTime
 
 	def netTime( self ):
-		return self.elapsedTime() - fruitlessTime
+		return self.elapsedTime() - self.interruptionTime()
