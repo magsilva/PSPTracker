@@ -5,8 +5,8 @@ FORMS = AbstractMain.py AbstractRealtimeTracker.py AbstractOfflineTracker.py
 DESTDIR  = 
 TARGET = PSPTracker.py
 
-%.py: %.ui
-	$(PYUIC) psptracker/forms/$< -o psptracker/$@ 
+%.py: psptracker/forms/%.ui
+	$(PYUIC) $< -o psptracker/$@ 
 
 all: $(FORMS)
 
