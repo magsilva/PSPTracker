@@ -2,13 +2,16 @@ import sys
 import logging
 
 from psptracker import *
+from psptracker.constants import *
 from psptracker.trackers import *
 from optparse import OptionParser
 from psptracker.settings import Settings
 
+logging.basicConfig(format="%(asctime)s - %(levelname)s - %(name)s - %(message)s")
+
 def main( args ):
     debug = logging.getLogger( "psptracker" ).debug
-    debug("%s v%s starting up..." % APP_NAME, VERSION)
+    debug("%s v%s starting up..." % (APP_NAME, VERSION ))
     parser = OptionParser()
     parser.add_option("-c", "--config",
                       dest="configfile",
@@ -33,10 +36,10 @@ def main( args ):
 
     app = QApplication( args )
 
-    trackerUI = psptracker.Main()
     trackerUI = RealtimeTracker()
 
     app.setMainWidget( trackerUI )
+    trackerUI.show()
     app.exec_loop()
 
 

@@ -9,14 +9,13 @@ class Settings(dict):
 
     def __init__(self, settings=None):
         dict.__init__(self)
-        self.filename = settings.filename
+        self.filename = settings.configfile
 
-        if not filename:
+        if not self.filename:
             error("Could not discover the config filename")
 
         self.loadSettings()
-        for k,v in settings.items():
-            self.__setitem__( k, v )
+        self.__setitem__( "datadir", settings.datadir )
         
 
     def __getitem__(self, k):
