@@ -14,3 +14,4 @@ $(TARGET): $(FORMS)
 
 clean:
 	rm -f *~ *.pyc *.pyo
+	rm -f Documentation/Project/*.bak.*
