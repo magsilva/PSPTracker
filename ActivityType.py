@@ -1,3 +1,6 @@
+from Activity import Activity
+from time import *
+
 class ActivityType(object):
 
 	def __init__( self, name = "", description = "" ):
@@ -20,8 +23,8 @@ class ActivityType(object):
 	def netTime( self ):
 		return self.elapsedTime() - self.interruptionTime()
 
-	def start( self ):
-		activity = Activity()
+	def instantiate( self, description = "" ):
+		activity = Activity( description )
 		self.logs.append( activity )
 		return activity
 
@@ -30,3 +33,8 @@ class ActivityType(object):
 			self.logs.remove( activity )
 		except ValueError:
 			raise Exception( "Activity not found" )
+
+	def toCSV( self ):
+		csv = ""
+		csv = self.name + "," + self.description + "," + str( self.elapsedTime() ) + "," + str( self.interruptionTime() )
+		return csv

@@ -1,16 +1,16 @@
 PYUIC    = pyuic
 PYTHON   = python
 
-SOURCES = main.cpp
-OBJECTS = mainform.pyo
-FORMS = mainform.ui
+FORMS = AbstractRealtimeTracker.py AbstractOfflineTracker.py
 DESTDIR  = 
-TARGET   = psp
+TARGET = PSPTracker.py
 
 .ui.py:
-	$(PYUIC) > $@ $<
+	$(PYUIC) -o $@ $<
 
-.py.pyo:
-	$(PYTHON) -O $(CXXFLAGS) $(INCPATH) -o $@ $<
+all: $(TARGET)
 
-$(TARGET): $(OBJECTS) $(OBJMOC)  
+$(TARGET): $(FORMS)
+
+clean:
+	rm -f *~ *.pyc *.pyo

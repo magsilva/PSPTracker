@@ -1,6 +1,9 @@
+from ActivityType import ActivityType
+from time import *
+
 class Tracker(object):
 
-	def __init__( self, filename = "" ):
+	def __init__( self ):
 		self.activities = {}
 		self.categories = {}
 
@@ -44,8 +47,8 @@ class Tracker(object):
 	def deleteActivityType( self ):
 		del( self.activities[ name ] )
 
-	def exportCSV( self ):
+	def toCSV( self ):
 		csv = ""
 		for i in self.activities:
-			csv += i.name + "," + i.description + ","  + i.elapsedTime() + "," + i.interruptionTime() + "," + i.netTime() + "\n"
+			csv += self.activities[ i ].toCSV() + "\n"
 		return csv
