@@ -1,39 +1,17 @@
 import sys
-import random
-import time
 
-from qt import *
+from qt import QApplication
 from psptracker import *
 
 def main( args ):
-#	app = QApplication( args )
-#	QObject.connect( app, SIGNAL( 'lastWindowClosed()' ), app, SLOT( 'quit()' ) )
-	tracker = TrackerFactory.load( "teste" )
+	app = QApplication( args )
+	QObject.connect( app, SIGNAL( 'lastWindowClosed()' ), app, SLOT( 'quit()' ) )
 
-	try:
-		activityType = tracker.createActivityType( "Teste", "Description for teste" )
-	except Exception:
-		activityType = tracker.chooseActivityType( "Teste"  )
+	trackerUI = Main()
+	app.setMainWidget( trackerUI )
+	trackerUI.show()
+	app.exec_loop()
 
-	random.seed()
-
-	for i in range(0,10):
-		activity = activityType.instantiate( "teste" + str( i ) )
-		activity.start()
-		if random.random() > 0.5:
-			print "Lazy guy...\n"
-			activity.pause()
-			activity.pause()
-		activity.stop()
-
-	print tracker.toCSV()
-	TrackerFactory.save( "teste", tracker )
-
-#	trackerUI = RealtimeTracker()
-#	trackerUI = OfflineTracker()
-#	app.setMainWidget( trackerUI )
-#	trackerUI.show()
-#	app.exec_loop()
 
 if __name__ == "__main__":
 	main( sys.argv )
