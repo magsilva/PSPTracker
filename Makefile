@@ -1,7 +1,7 @@
 PYUIC    = pyuic
 PYTHON   = python
 
-FORMS = AbstractRealtimeTracker.py AbstractOfflineTracker.py
+FORMS = AbstractMain.py AbstractRealtimeTracker.py AbstractOfflineTracker.py
 DESTDIR  = 
 TARGET = PSPTracker.py
 
