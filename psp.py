@@ -1,12 +1,12 @@
 import sys
 from qt import *
 
-def main(args):
-    app=QApplication(args)
-    win=HelloWindow()
-    win.show()
-    app.connect(app, SIGNAL("lastWindowClosed()"), app, SLOT("quit()"))
+def main( args ):
+    app = QApplication( args )
+		trackerUI = TrackerUI()
+		app.setMainWidget( trackerUI )
+    trackerUI.show()
     app.exec_loop()
 
 if __name__=="__main__":
-    main(sys.argv)
+    main( sys.argv )

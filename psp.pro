@@ -3,7 +3,7 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-SOURCES	+= main.cpp
+SOURCES	+=
 
 FORMS	= mainform.ui
 

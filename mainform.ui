@@ -81,7 +81,7 @@
                             </property>
                             <property name="sizePolicy">
                                 <sizepolicy>
-                                    <hsizetype>4</hsizetype>
+                                    <hsizetype>1</hsizetype>
                                     <vsizetype>0</vsizetype>
                                     <horstretch>0</horstretch>
                                     <verstretch>0</verstretch>
@@ -582,18 +582,6 @@
         <slot>setEnabled(bool)</slot>
     </connection>
     <connection>
-        <sender>Start</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>Start</receiver>
-        <slot>setDisabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>Start</sender>
-        <signal>clicked()</signal>
-        <receiver>TotalTime</receiver>
-        <slot>stepUp()</slot>
-    </connection>
-    <connection>
         <sender>Pause</sender>
         <signal>toggled(bool)</signal>
         <receiver>InterruptReason</receiver>
@@ -604,21 +592,10 @@
         <signal>toggled(bool)</signal>
         <receiver>LabelInterruptReason</receiver>
         <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>Stop</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>LabelInterruptReason</receiver>
-        <slot>setDisabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>Stop</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>InterruptReason</receiver>
-        <slot>setDisabled(bool)</slot>
     </connection>
 </connections>
 <tabstops>
+    <tabstop>Category</tabstop>
     <tabstop>Activity</tabstop>
     <tabstop>Description</tabstop>
     <tabstop>Start</tabstop>
