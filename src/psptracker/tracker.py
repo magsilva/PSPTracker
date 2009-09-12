@@ -18,54 +18,54 @@ class Tracker(object):
 	def listCategories( self ):
 		return self.categories.keys()
 
-	def categorizeActivityType( self, activityType, category ):
-		if not self.categories.has_key( category ):
-			self.categories[ category ] = []
-		if not self.categories[ category ].index( activityType ):
-			self.categories[ category ].append( activityType )
+	def categorizeActivityType(self, activityType, category):
+		if not self.categories.has_key(category):
+			self.categories[category] = []
+		if not self.categories[category].index(activityType):
+			self.categories[category].append(activityType)
 
-	def uncategorizeActivityType( self, activityType, category ):
-		if not self.categories.has_key( category ):
-			raise Exception( "The category " + category + " doesn't exist." )
+	def uncategorizeActivityType(self, activityType, category):
+		if not self.categories.has_key(category):
+			raise Exception("The category " + category + " doesn't exist.")
 		try:
-			self.categories[ category ].remove( activityType )
+			self.categories[category].remove(activityType)
 		except ValueError:
-			raise Exception( "The activity type " + activityType + " doesn't belog to the category " + category + "." )
+			raise Exception("The activity type " + activityType + " doesn't belog to the category " + category + ".")
 
-	def listActivityTypes( self, category = "" ):
+	def listActivityTypes(self, category = ""):
 		if category == "":
 			return self.activities.keys()
 		else:
-			return self.categories[ category ].keys()
+			return self.categories[category].keys()
 
-	def chooseActivityType( self, type = "" ):
+	def chooseActivityType(self, type = ""):
 		try:
-			return self.activities[ type ]
+			return self.activities[type]
 		except ValueError:
-			raise Exception( "Activity type could not be found." )
+			raise Exception("Activity type could not be found.")
 
-	def createActivityType( self, name, description = "" ):
-		if self.activities.has_key( name ):
-			raise Exception( "This activity type already exists." )
+	def createActivityType(self, name, description = ""):
+		if self.activities.has_key(name):
+			raise Exception("This activity type already exists.")
 		else:
-			activityType = ActivityType( name, description )
-			self.activities[ name ] = activityType
+			activityType = ActivityType(name, description)
+			self.activities[name] = activityType
 			return activityType
 
-	def deleteActivityType( self, name ):
-		del( self.activities[ name ] )
+	def deleteActivityType(self, name):
+		del(self.activities[name])
 
-	def renameActivityType( self, oldName, newName ):
-		if not self.activities.has_key( oldName ):
-			raise Exception( "Activity type could not be found." )
-		elif self.activities.has_key( newName ):
-			raise Exception( "There is already an activity with the suggested name." )
+	def renameActivityType(self, oldName, newName):
+		if not self.activities.has_key(oldName):
+			raise Exception("Activity type could not be found.")
+		elif self.activities.has_key(newName):
+			raise Exception("There is already an activity with the suggested name.")
 
-		activityType = self.activities[ oldName ]
-		del( self.activities[ oldName ] )
-		self.activities[ newName ] = activityType	
+		activityType = self.activities[oldName]
+		del(self.activities[oldName])
+		self.activities[newName] = activityType	
 
-	def toCSV( self ):
+	def toCSV(self):
 		csv = ""
 		for i in self.activities:
 			csv += self.activities[ i ].toCSV() + "\n"
@@ -74,7 +74,7 @@ class Tracker(object):
 
 
 
-class TrackerFactory( object ):
+class TrackerFactory(object):
 
 	trackers = {}
 
@@ -82,44 +82,43 @@ class TrackerFactory( object ):
 		pass
 
 
-	def load( cls, trackerName, dataDir = None ):
+	def load(cls, trackerName, dataDir = None):
 		if not dataDir:
 			dataDir = DEFAULT_DATA_DIR
 
+		error("Looking for tracker %s at the directory %s" % (trackerName, dataDir))
 
-		error( "Looking for tracker %s at the directory %s" % ( trackerName, dataDir ) )
+		trackerFilename = os.path.join(dataDir, trackerName)
 
-		trackerFilename = os.path.join( dataDir, trackerName )
+		error("Loading tracker %s from file %s" % ( trackerName, trackerFilename))
 
-		error( "Loading tracker %s from file %s" % ( trackerName, trackerFilename ) )
-
-		if not cls.trackers.has_key( trackerName ):
+		if not cls.trackers.has_key(trackerName):
 			try:
-				file = open( trackerFilename, "r" )
-				unpickler = Unpickler( file )
-				cls.trackers[ trackerName ] = unpickler.load()
+				file = open(trackerFilename, "r")
+				unpickler = Unpickler(file)
+				cls.trackers[trackerName] = unpickler.load()
 			except IOError:
 				tracker = Tracker()
-				cls.save( trackerName, tracker )
-				cls.trackers[ trackerName ] = tracker
+				cls.save(trackerName, tracker)
+				cls.trackers[trackerName] = tracker
 
-		return cls.trackers[ trackerName ]
+		return cls.trackers[trackerName]
 
-	load = classmethod( load )
+	load = classmethod(load)
 
 
-	def save( cls, trackerName, tracker, dataDir = None ):
+	def save(cls, trackerName, tracker, dataDir = None):
 		if not dataDir:
 			dataDir = DEFAULT_DATA_DIR
 
-		error( "Looking for tracker %s at the directory %s" % ( trackerName, dataDir ) )
+		error("Looking for tracker %s at the directory %s" % (trackerName, dataDir))
 
-		trackerFilename = os.path.join( dataDir, trackerName )
+		trackerFilename = os.path.join(dataDir, trackerName)
 
-		error( "Loading tracker %s from file %s" % ( trackerName, trackerFilename ) )
+		error("Loading tracker %s from file %s" % (trackerName, trackerFilename))
 
-		file = open( trackerFilename, "w+" )
-		pickler = Pickler( file, HIGHEST_PROTOCOL )
-		return pickler.dump( tracker )
+		file = open(trackerFilename, "w+")
+		pickler = Pickler(file, HIGHEST_PROTOCOL)
+		return pickler.dump(tracker)
 
-	save = classmethod( save )
+	save = classmethod(save)

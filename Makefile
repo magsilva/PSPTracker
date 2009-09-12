@@ -1,12 +1,12 @@
-PYUIC    = pyuic
+PYUIC    = pyuic4
 PYTHON   = python
 
 FORMS = AbstractRealtimeTracker.py AbstractOfflineTracker.py AbstractCategoryManager.py AbstractActivityManager.py
 DESTDIR  = 
 TARGET = psptracker.py
 
-%.py: psptracker/forms/%.ui
-	$(PYUIC) $< -o psptracker/$@ 
+%.py: src/psptracker/forms/%.ui
+	$(PYUIC) $< -o src/psptracker/$@ 
 
 all: $(FORMS)
 
